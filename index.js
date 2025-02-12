@@ -9,7 +9,7 @@ const flash = require('express-flash');
 
 const app = express();
 const PORT = process.env.PORT || 8000;
-const mongoURI = process.env.MONGO_URI;  // For local MongoDB
+const mongoURI = process.env.LOCALHOST_MONGO_URI|| process.env.MONGO_URI;  // For local MongoDB
 
 
 
