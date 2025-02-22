@@ -394,7 +394,7 @@ staticRoutes.post('/add-sales-report', async (req, res) => {
                     break; // Stop loop once valid data is found
                 }
             }
-            const totalInvestment = (previousTotalInvestment || 0) + (todayInvestment || 0) - (oldTotalInvestment || 0);
+            const totalInvestment = (previousTotalInvestment || 0) + (todayInvestment || 0);
 
             shop.totalInvestment = totalInvestment; // Update shop's totalInvestment
             shop.date = formatDate(date); // Update shop's date
@@ -443,6 +443,10 @@ staticRoutes.get('/product-stock-report', async (req, res) => {
         console.error("Error fetching stock report:", error);
         res.status(500).send("Error fetching stock report");
     }
+});
+
+staticRoutes.get('/products', (req, res) => {
+    res.redirect('/add-product');
 });
 
 
